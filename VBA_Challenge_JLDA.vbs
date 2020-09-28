@@ -119,26 +119,26 @@ Sub create_summaries_full()
 
     Dim WS_Count As Integer
     Dim j As Integer
-    Dim pctdone2 As Single
+    'Dim pctdone2 As Single
     ' Set WS_Count equal to the number of worksheets in the active workbook.
     
     WS_Count = ActiveWorkbook.Worksheets.Count
-    ufProgress.LabelProgress.Width = 0
-    ufProgress.Show
+    'ufProgress.LabelProgress.Width = 0
+    'ufProgress.Show
 
     ' Begin the loop.
     
     For j = 1 To WS_Count
-        pctdone2 = j / WS_Count
+    '    pctdone2 = j / WS_Count
         Worksheets(ActiveWorkbook.Worksheets(j).Name).Activate
         summary_tickets_assigment
         summary_greatest_tickers
-        With ufProgress
-            .LabelCaption.Caption = "Processing Sheet " & j & "  of  " & WS_Count
-            .LabelProgress.Width = pctdone2 * (.FrameProgress.Width)
-        End With
-        DoEvents
-        If j = WS_Count Then Unload ufProgress
+    '    With ufProgress
+    '        .LabelCaption.Caption = "Processing Sheet " & j & "  of  " & WS_Count
+    '        .LabelProgress.Width = pctdone2 * (.FrameProgress.Width)
+    '    End With
+    '    DoEvents
+    '    If j = WS_Count Then Unload ufProgress
     Next j
 Worksheets(ActiveWorkbook.Worksheets(1).Name).Activate
 End Sub
@@ -146,26 +146,26 @@ Sub reset_full_summaries()
 
 Dim WS_Count2 As Integer
 Dim k As Integer
-Dim pctdone As Single
+'Dim pctdone As Single
 
     ' Set WS_Count equal to the number of worksheets in the active workbook.
     
     WS_Count2 = ActiveWorkbook.Worksheets.Count
-    ufProgress.LabelProgress.Width = 0
-    ufProgress.Show
+    'ufProgress.LabelProgress.Width = 0
+    'ufProgress.Show
     
     ' Begin the loop.
     
     For k = 1 To WS_Count2
-        pctdone = k / WS_Count2
+        'pctdone = k / WS_Count2
         Worksheets(ActiveWorkbook.Worksheets(k).Name).Activate
         reset_summaries
-        With ufProgress
-            .LabelCaption.Caption = "Processing Sheet " & k & "  of  " & WS_Count2
-            .LabelProgress.Width = pctdone * (.FrameProgress.Width)
-        End With
-        DoEvents
-        If k = WS_Count2 Then Unload ufProgress
+        'With ufProgress
+        '    .LabelCaption.Caption = "Processing Sheet " & k & "  of  " & WS_Count2
+        '    .LabelProgress.Width = pctdone * (.FrameProgress.Width)
+        'End With
+        'DoEvents
+        'If k = WS_Count2 Then Unload ufProgress
     Next k
 Worksheets(ActiveWorkbook.Worksheets(1).Name).Activate
 End Sub
